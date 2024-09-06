@@ -1,6 +1,9 @@
 import axios from "axios";
 import { assert, expect } from "chai";
 
+// before running the this file make sure that you install these packages, so that on successfull completion of the test case run, a detail report gets generated:
+// npx mocha .\api.test.mjs --reporter mochawesome --reporter-options reportDir=./reports reportFilename=automation-test-report
+
 //json placeholder API
 const baseURL = 'https://jsonplaceholder.typicode.com';
 
