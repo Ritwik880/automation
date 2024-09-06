@@ -8,6 +8,8 @@ async function automateProduct() {
         await driver.get('https://www.amazon.in/');
 
         let searchProduct = await driver.findElement(By.id('twotabsearchtextbox'))
+
+        //searching for specific product
         await searchProduct.sendKeys('Campush shoe');
         await searchProduct.submit();
 
@@ -28,7 +30,7 @@ async function automateProduct() {
         console.log(`Product Price: ${getFirstProductPrice}`);
         console.log(`Product Link: ${getProductLink}`);
 
-        await driver.get('https://www.amazon.in/Campus-Mens-Black-Running-Shoe/dp/B08PSHZLN2/ref=sr_1_1?crid=2Z1IGDDL2E3ZW&dib=eyJ2IjoiMSJ9.ebKuBsHXGon9Er1Gcw2Fw6TodlaO4keS7j1_t1AZ0PEc4doaeLmbnJ2QanSdTpF98krgOKJfyIUTQsOIPmM_CRI0dUBE7fw5tpNXDfehwDS_bf36Ww8ezjeMwKyloDWwsKg68Ce6W9qbUaalWBJvaOlkV6Vh67_Nacx8SFQnxi15J0AidPk6L7eenc98uoAyukZ3U1iPZj85Qi4QNZgHxtSDRYBQnzls2t5vjiiwp8xBXGIuR5CjBkiNIfL6E32nngA7QhTpvjgF0M-DhlUWXeTwBsFypenYShuNHtKc5AY.bufzmEtpk8y3f1kZ643pZ3dPV6z_DVM9pBJ-ss6ocPw&dib_tag=se&keywords=campus+shoe&qid=1725552309&sprefix=campush+shoe%2Caps%2C250&sr=8-1');
+        await driver.get('https://www.amazon.in/Campus-North-Plus-Running-Shoes/dp/B08PRY7ZY8/ref=sr_1_2_sspa?crid=14W68V78Y30PB&dib=eyJ2IjoiMSJ9.Lqk9sXXwyNIgnRct0FKs0fhoIptQXCkIkNzceu5JLfvEOjh7cshnPNjDHuMVmTGT6gcyDT_0ATQeffu3sxrcKTXUhH6IGqT7FgQ_nuA75D4EXQIZKO6ATPt6jkz3EeVIsScyeLSP04ApmDcPgDjVdrjUSIwDcviRCbBwbWQ51L-vhuEaOppCZ5LwmluF2FRiUKEFMQJQstt7I9Oxy8clAiv4g0pZO43DZYfmLJ0nB-YCO3KCS06yu1Zq3_kVPid-aJxPiNHx7wfbB6ww0SPKkJC1l5dsgM3bQpFPfhnK0hA.xHCchL4N2o4Td6z98AZU3R5uNN8msuMXYL7bHdjOpUc&dib_tag=se&keywords=Campus+shoe&nsdOptOutParam=true&qid=1725591026&sprefix=campus+sho%2Caps%2C249&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1');
 
         let clickOnAddToCart = await driver.findElement(By.xpath('//input[@id="add-to-cart-button"]'));
         await clickOnAddToCart.click();
@@ -38,12 +40,10 @@ async function automateProduct() {
 
         await driver.wait(until.elementLocated(By.xpath('//span[@id="sc-buy-box-ptc-button"]')), 5000);
 
+        //since we have to login first to navigate to the checkout page, so I have kept till this here only.
         let proceedToBuy = await driver.findElement(By.xpath('//span[@id="sc-buy-box-ptc-button"]'));
         await proceedToBuy.click();
 
-    }
-    catch (error) {
-        console.log(error);
     }
     finally {
         await driver.quit()

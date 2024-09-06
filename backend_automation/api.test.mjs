@@ -1,5 +1,7 @@
 import axios from "axios";
 import { assert, expect } from "chai";
+
+//json placeholder API
 const baseURL = 'https://jsonplaceholder.typicode.com';
 
 describe('JSONPlaceholder API Tests', function () {
