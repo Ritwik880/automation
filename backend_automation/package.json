@@ -13,5 +13,8 @@
     "axios": "^1.7.7",
     "chai": "^5.1.1",
     "mocha": "^10.7.3"
+  },
+  "dependencies": {
+    "mochawesome": "^7.1.3"
   }
 }
